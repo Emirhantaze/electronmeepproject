@@ -20,5 +20,6 @@
     npm start
 
     once you have completed every time when you use
-    -npm install also use npm run rebuild or \node_modules\.bin\electron-rebuild
+    $ npm install also use
+    $npm run rebuild or $\node_modules\.bin\electron-rebuild
     second one only needed if rebuild is not defined in package.json
