@@ -1,8 +1,10 @@
   #test1 
   
     To be able to use that, node.js ((and for windows development tools
-      have to be installed properly)  
-    https://www.npmjs.com/package/node-pty?activeTab=readme but maybe this not problem in your case so at first try without them)
+      )  
+    https://www.npmjs.com/package/node-pty?activeTab=readme
+    but maybe this not problem in your case so at first try without them)
+    have to be installed properly
     
       
 
