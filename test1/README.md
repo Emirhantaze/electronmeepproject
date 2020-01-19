@@ -6,4 +6,4 @@
     (At this step you have to open your terminal/cmd/bash with administer rights)
     npm install
 
-    /node_modules/.bin/electron-rebuild
+    npm run rebuild
