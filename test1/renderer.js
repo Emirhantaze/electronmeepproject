@@ -7,7 +7,7 @@ const shell = process.env[os.platform() === 'win32' ? 'COMSPEC' : 'SHELL'];
 const ptyProcess = pty.spawn(shell, [], {
   name: 'xterm-color',
   cols: 80,
-  rows: 30,
+  rows: 0,
   cwd: process.cwd(),
   env: process.env
 });
