@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main-page.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="top-bar">
+        <div id="topbarfirstbutton" class="horizontal-button" onclick="create()">Open Your Project</div>
+    </div>
+    <div class="content">
+        <div class="tree noselect">
+            <div id="tree-top-bar">
+                <p style="float: left;padding-top: 10px;margin: 0px;">Simulation</p>
+                <div id="openPropertiesbtn" onclick="toggleProperties()"><img class="img" alt="" src="./icons/propertiesopenbtn.png" /></div>
+            </div>           
+            <div class="vertical-devider"></div>
+            <div id="contents">
+                 <div id="elementfalse-"></div>
+            </div>
+        </div>
+        <div class="left-divider"></div>
+        <div id="properties"></div>
+    </div>
+    <div class="bottom-bar"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="main-page.js"></script>
+</body>
+</html>

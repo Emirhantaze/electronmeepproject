@@ -1,0 +1,23 @@
+{
+  "name": "electronmeepproject",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^7.1.9"
+  },
+  "dependencies": {
+    "file-dialog": "0.0.8",
+    "jquery": "^3.4.1",
+    "json-tree-view": "^0.4.12"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "description": ""
+}

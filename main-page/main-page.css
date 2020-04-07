@@ -1,0 +1,60 @@
+.top-bar{
+ height: 32px;
+ background-color: #3A506B;
+}
+body{
+    height: 100vh;
+    margin: 0ch;
+    padding: 0px;
+}
+.content{
+    background-color: rgb(33, 46, 61);
+}
+.bottom-bar{
+    background-color: rgb(65, 64, 138);
+    height: 25px;
+}
+.left-divider{
+    width:5px; float: left;height: 100%;
+    cursor: e-resize;
+    background-color: rgb(25, 37, 71);
+
+}
+.right-divider{
+    width:5px; float: right;height: 100%;top: 0px;
+    cursor: e-resize;
+    background-color: rgb(25, 37, 71);
+    
+}
+.editor{
+    height: 100%;
+    background-color: rgb(21, 25, 36);
+    float: right;
+}
+.option{
+    font-size: 30px; min-height: 50px; background-color: aquamarine;   
+}
+
+.new-elements {
+    font-size: 20px;
+    padding-left: 30px;
+    color: #fff;
+    min-height: 40px;
+    background: black;
+    border: 1px solid #ccc;
+    display: flex; flex-direction: column;
+}
+
+#contents {
+    overflow-y: overlay;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+  }

@@ -1,0 +1,131 @@
+.top-bar{
+ height: 32px;
+ max-height: 32px;
+ background-color: #3A506B;
+}
+body{
+    height: 100vh;
+    margin: 0ch;
+    padding: 0px;
+}
+.content{
+    background-color: rgb(33, 46, 61);
+    height: calc(100% - 57px);
+}
+.bottom-bar{
+    background-color: rgb(65, 64, 138);
+    height: 25px;
+}
+.left-divider{
+    width:5px; float: left;height: 100%;
+    cursor: e-resize;
+    background-color: rgb(25, 37, 71);
+
+}
+.right-divider{
+    width:5px; float: right;height: 100%;top: 0px;
+    cursor: e-resize;
+    background-color: rgb(25, 37, 71);
+    
+}
+.editor{
+    height: 100%;
+    background-color: rgb(21, 25, 36);
+    float: right;
+}
+.tree{
+    
+    border-top: 1px solid rgb(46, 32, 32);
+    height: 100%;
+    font-size: 16px; 
+    background-color: rgb(64, 78, 124);
+    width: 350px;
+    float: left;   
+}
+
+.element {
+    margin-top: 1px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    max-height: 100%;
+    font-size: 14px;
+    color: #fff;
+    border-left: 1px solid rgb(186, 155, 226);
+    background-color:rgb(37, 45, 70); ;
+    display: flex; flex-direction: column;
+}
+.element:hover{
+    background-color: rgb(39, 27, 73);
+}
+
+#contents{
+    max-height: calc(100% - 55px);
+    overflow-y: scroll;
+    display: flex; flex-direction: column;
+}
+#contents::-webkit-scrollbar {
+    display: none;
+  }
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+  }
+  #tree-top-bar{
+    font-size: 20px;
+    color: #fff;
+    height: 40px;
+
+    padding-left: 10px;
+    background: rgb(42, 51, 82);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+  }
+.vertical-devider{
+    width: 100%;
+    height: 5px;
+    background-color: rgb(19, 10, 43); 
+    }
+.horizontal-button{
+    float: left;
+    padding-top: 5px;
+    margin-bottom: -105px;
+    text-align: center center;
+    background: none;
+    height: 100%;
+    color: rgb(122, 122, 122);
+}
+.horizontal-button:hover{
+    background-color: rgb(69, 87, 109);
+    color: white;
+
+}
+#topbarfirstbutton{
+    margin-left: 20px;
+}
+#openPropertiesbtn{
+    padding: 0px;
+    padding-top: 1%;
+    height: 85%;
+    width: 50px;
+    float :right ;
+
+}
+
+img{
+    height: 100%;
+    width: 80%;
+    object-fit: cover;
+}
+#properties{
+    height: 100%;
+    width: 200px;
+    visibility: visible;
+    float: left;
+    background-color: rgb(64, 78, 124);;
+}
