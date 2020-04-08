@@ -43,6 +43,7 @@ function writetotable(obj,array){
             arr.push(i)
             document.getElementById("element"+"false-"+convertarray(arr)).style.marginLeft=String(20*(arr.length-1)+10)+"px"
             arr.pop()
+
         }
         else{
 
@@ -59,7 +60,7 @@ function writetotable(obj,array){
             arr.push(i)
             document.getElementById("element"+"false-"+convertarray(arr)).addEventListener("click", function(){
                 expandcollapse(this.id);  
-                arr= this.id.replace("element","").split("-")
+                var arr= this.id.replace("element","").split("-")
                 if(arr[0]==="false"){
 
                     document.getElementById(this.id).id = this.id.replace("false","true")
@@ -70,8 +71,13 @@ function writetotable(obj,array){
             });
             
             document.getElementById("element"+"false-"+convertarray(arr)).style.marginLeft=String(20*(arr.length-1)+10)+"px"
-            arr.pop()
-
+            /*
+            var key1 = Object.keys(obj[key[i]])
+            if(key1.length==1){
+                
+                writetotable(obj[key[i]],arr)
+                
+            }*/arr.pop()
 
         }
 }

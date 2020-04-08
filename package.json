@@ -14,7 +14,8 @@
   "dependencies": {
     "file-dialog": "0.0.8",
     "jquery": "^3.4.1",
-    "json-tree-view": "^0.4.12"
+    "json-tree-view": "^0.4.12",
+    "pixi.js": "^5.2.1"
   },
   "directories": {
     "lib": "lib"
