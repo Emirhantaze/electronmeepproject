@@ -1,24 +1,47 @@
 {
   "name": "electronmeepproject",
-  "version": "1.0.0",
-  "main": "main.js",
-  "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "electron": "^7.1.9"
-  },
+  "version": "0.1.0",
+  "private": true,
+  "main": "electron-starter.js",
+  "homepage": "./",
   "dependencies": {
-    "file-dialog": "0.0.8",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "bootstrap": "^4.4.1",
+    "create-react-class": "^15.6.3",
+    "file-dialog": "^0.0.8",
     "jquery": "^3.4.1",
-    "json-tree-view": "^0.4.12",
-    "pixi.js": "^5.2.1"
+    "popper.js": "^1.16.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1"
   },
-  "directories": {
-    "lib": "lib"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "dev": "nf start"
   },
-  "description": ""
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^8.2.1",
+    "foreman": "^3.0.1"
+  }
 }

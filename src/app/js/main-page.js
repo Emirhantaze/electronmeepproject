@@ -41,7 +41,7 @@ function writetotable(obj,array){
             arr.pop()
             $(para).insertAfter("#elementfalse-"+convertarray(arr));
             arr.push(i)
-            document.getElementById("element"+"false-"+convertarray(arr)).style.marginLeft=String(20*(arr.length-1)+10)+"px"
+            document.getElementById("elementfalse-"+convertarray(arr)).style.marginLeft=String(20*(arr.length-1)+10)+"px"
             arr.pop()
 
         }
@@ -83,7 +83,7 @@ function writetotable(obj,array){
 }
 function generateclasname(array){
     var arr = Object.assign([],array);
-    str=""
+    var str=""
     for(var i = 0; i<arr.length;i++){
         if(i==0){
             str=String(arr[0])
