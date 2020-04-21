@@ -1,6 +1,8 @@
-/* imports part
-////////////////////
-////////////////////*/
+/* 
+//////////////////////////////             /////////////////////////////
+//////////////////////////////   imports   /////////////////////////////           
+//////////////////////////////             /////////////////////////////
+*/
 import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from 'jquery';
 import Popper from 'popper.js';
@@ -9,12 +11,33 @@ import React from "react"
 import ReactDOM from "react-dom"
 import "./app/main-page.css"
 import propertiesopenbtn from "./app/icons/propertiesopenbtn.png"
+import logo from "./app/icons/logo192.png"
 const fileDialog = require("file-dialog")
-const electron = window.require('electron');
-const fs = electron.remote.require('fs');
+const {remote} = window.require('electron');
+const {Menu,MenuItem} = remote;
+const fs = remote.require('fs');
+const customTitlebar  = window.require('custom-electron-titlebar');
 
 
 
+let MyTitleBar = new customTitlebar.Titlebar({
+    backgroundColor: customTitlebar.Color.fromHex('#3A506B'),
+    icon:logo
+});
+const menu = new Menu();
+menu.append(new MenuItem({
+    label: 'Open Your Project',
+    click:()=> {create();}
+}));
+ 
+
+MyTitleBar.updateMenu(menu);
+// 3. Update Titlebar text
+
+MyTitleBar.updateTitle('ElectronMeepProj V-0.0.3');
+
+/**/
+let propertiesLastKey = 0
 let projectData = []
 let meep = {name: ""}
 let ClickedElement = 0;
@@ -30,7 +53,6 @@ class App extends React.Component{
     render(){
         return(
             <div>
-                <Topbar/>
                 <Content/>
                 <BottomBar/>
             </div>
@@ -87,7 +109,8 @@ class ProjectTree extends React.Component{
     render(){
         let temp  = []
         for(let i = 0; i<projectTree.length;i++){
-            temp.push(<Element key={i} array={projectTree[i]["array"]} text={projectTree[i]["text"]} isclicked={projectTree[i]["isclicked"]} clickable={projectTree[i]["clickable"]}/>)
+            temp.push(<Element key={i} array={projectTree[i]["array"]} text={projectTree[i]["text"]} 
+                                       isclicked={projectTree[i]["isclicked"]} clickable={projectTree[i]["clickable"]}/>)
         }
     return(<div>{temp}</div>);
     }
@@ -97,7 +120,7 @@ class Element extends React.Component{
     render(){
         let temp =this.props.array.length
         temp = String(20*(temp-1)+10)+"px"
-    return(<div style={{marginLeft:temp}} className="element" onClick={()=>{
+    return(<div style={{marginLeft:temp,overflow: "hidden"}} className="element" onClick={()=>{
                     ElementClick(this.props.array,this.props.isclicked,this.props.clickable)
             }}>{this.props.text}</div>
         );
@@ -111,17 +134,34 @@ class PropertiesPanel extends React.Component{
     render(){
         let obj = returnobj(meep,projectTree[ClickedElement].array)
         let output = [];
+        let arr = Object.assign([],projectTree[ClickedElement].array)
         if(typeof(obj)==="object"){
             let key = Object.keys(obj)
-            console.log(obj)
-            for(let i = 0; i<key.length;i++){
-                output.push(<PropertiesElement key= {Math.floor(Math.random() * 10000)} value={obj[key[i]]} name={key[i]}/>)
+            for(let i = propertiesLastKey; i<(key.length+propertiesLastKey);i++){
+                if(typeof(obj[key[i-propertiesLastKey]])==="object"){
+                    arr.push(i-propertiesLastKey)
+                    let line = 0;
+                    for(let i = 0; i<projectTree.length;i++){
+                        
+                        if(projectTree[i].array.toString()===arr.toString()){
+                            line=i;
+                        }
+                    }
+                    output.push(<PropertiesElement key= {i} value={""} name={key[i-propertiesLastKey]} type="object"
+                                                   array={Object.assign([],arr)} isclicked={projectTree[line].isclicked}/>)
+                    arr.pop()
+                }
+                else
+                output.push(<PropertiesElement key= {i} value={obj[key[i-propertiesLastKey]]} name={key[i-propertiesLastKey]}/>)
+                console.log(i)
             }
+            propertiesLastKey+=key.length;
         }else{
-            console.log("string")
-            output.push(<PropertiesElement key= {Math.floor(Math.random() * 10000)} name={projectTree[ClickedElement].text.split(":")[0]} value={obj}/>)
-        }console.log(output)
+            output.push(<PropertiesElement key= {propertiesLastKey} name={projectTree[ClickedElement].text.split(":")[0]} value={obj}/>)
+            propertiesLastKey++;
+        }
         //if()
+        console.log("success")
         return(<div style={{visibility:collapsible.PropertiesPanel}} id="PropertiesPanel">
        {output}
         </div>);
@@ -137,14 +177,31 @@ class PropertiesElement extends React.Component{
         this.setState({value: event.target.value});
       }
     render(){
-        return(<div style={{height:"55px", borderBottom : "0.1px solid black"}}>
+        
+        if(this.props.type==="object"){
+            return(<div className="noselect" style={{height:"55px", borderBottom : "0.1px solid black"}}>
+            <label>
+                {this.props.name}
+                </label>
+                    <div className="btn element btn-secondary" onClick={()=>{PropertyClick(this.props.array)}}>
+                        Click to open {this.props.name}
+                    </div>
+           </div>);
+        }else{
+            return(
+            <div className="noselect" style={{height:"55px", borderBottom : "0.1px solid black"}}>
         <label>
             {this.props.name}
             </label>
-            <input style={{marginRight:"5px"}} type="text" value={this.state.value} onChange={this.handleChange}/>
+                <div>
+            <input style={{marginRight:"5px"}} type="text" value={this.state.value} 
+                            onKeyPress={(keyPress) => console.log(keyPress.key)} 
+                            onChange={this.handleChange}/>
         
             <input style={{marginRight:"5px"}} type="submit" value="OK" />
+            </div>
        </div>);
+        }
     }
 }
 class BottomBar extends React.Component{
@@ -163,21 +220,27 @@ function Toggle(who){
         }
     }update()
 }
-function ElementClick(array,flag=false,flag1=true){
+function ElementClick(array,flag=false,flag1=true,first=false){
     
     let arr = Object.assign([],array)
     if(!flag){
-        let line = 0;
+        let line=null;
         for(let i = 0; i<projectTree.length;i++){
             
             if(projectTree[i].array.toString()===arr.toString()){
                 line=i;
             }
         }
-        ClickedElement = line
-        if(!(projectTree.length===0)){
+        
+        if((!(projectTree.length===0))&&!(line===null)){
         projectTree[line].isclicked=true}
-        if(!flag1) {update();return;}
+        if(first){
+            if((line===null)){
+                line=0;
+            }
+        }else
+        if(!flag1||(line===null)) {update();return;}
+        ClickedElement = line
         let obj = returnobj(meep,arr);
         let key = Object.keys(obj);
 
@@ -212,14 +275,16 @@ function ElementClick(array,flag=false,flag1=true){
         }
         ClickedElement = line
         if(!flag1) {update();return;}
-        let obj = returnobj(meep,arr);
-        let key =  Object.keys(obj);
-        for(let i = 0; i<key.length;i++){
-            arr.push(i)
-            if(projectTree[line+1].array.toString()===arr.toString()){
-                projectTree.splice(line+1,1);
+        for(let i = line+1;i<projectTree.length;i++){
+            let temp = Object.assign([],projectTree[i].array)
+            while(!(temp.length<=projectTree[line].array.length)){
+                temp.pop()
+                console.log("repeat")
             }
-            arr.pop()
+            if(temp.toString()===projectTree[line].array.toString()){
+                projectTree.splice(line+1,1)
+                i--
+            }
         }
         projectTree[line].isclicked=false
     }
@@ -228,7 +293,34 @@ function ElementClick(array,flag=false,flag1=true){
     update();
     
 }
+function ChangeProperty(arr,value){
+    for(let i = 0; i<arr.length;i++){
+        let key 
+    }
+}
+function PropertyClick(array){
+    let arr = Object.assign([],array);
+    for(let i = 0; i<arr.length;i++){
+        let temparr = [];
+        for(let j = 0; j<i+1;j++){
+            temparr.push(arr[j])
+        }
+        let line=null;
+        for(let j = 0; j<projectTree.length;j++){
+            
+            if(projectTree[j].array.toString()===temparr.toString()){
+                line=j;
+            }
+        }  
+        let tempisclicked = projectTree[line].isclicked
+        ElementClick(temparr,false,!tempisclicked) 
+    }    
+}
 function update(){
+    if(propertiesLastKey>1000){
+        propertiesLastKey=0
+    }
+    
     ReactDOM.render(<App />,document.getElementById("root"))
 }
 function create(){
@@ -237,7 +329,7 @@ function create(){
         fs.readFile(files[0].path,(err,data)=>{
             meep = JSON.parse(data.toString())
             projectTree=[]
-            ElementClick([])
+            ElementClick([],false,true,true)
             //writetotable(meep,[])
         });
     });
@@ -250,7 +342,9 @@ function returnobj(objj,array){
     }
     return obj;
 }
+function test(){
 
+}
 
 
 update()

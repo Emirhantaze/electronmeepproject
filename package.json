@@ -10,12 +10,15 @@
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
     "create-react-class": "^15.6.3",
+    "custom-electron-titlebar": "^3.2.2-hotfix62",
     "file-dialog": "^0.0.8",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
+    "react-custom-electron-titlebar": "^3.1.0",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "webpack": "^4.42.0"
   },
   "scripts": {
     "start": "react-scripts start",

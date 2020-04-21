@@ -4,7 +4,7 @@
  background-color: #3A506B;
 }
 body{
-    height: 100vh;
+    height: 100%;
     margin: 0ch;
     padding: 0px;
 }
@@ -13,7 +13,7 @@ div{
 }
 .content{
     background-color: rgb(33, 46, 61);
-    height: calc(100% - 54px);
+    height: calc(100% - 52px);
 }
 .bottom-bar{
     background-color: rgb(65, 64, 138);
@@ -60,6 +60,7 @@ div{
 }
 .element:hover{
     background-color: rgb(39, 27, 73);
+    
 }
 
 #contents{
@@ -152,6 +153,8 @@ input{
 
 }
 label{
+    padding-left: 5px;
+    padding-bottom: 1px;
     color: aliceblue;
     width: 100%;
     margin-bottom: 1px;
