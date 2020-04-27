@@ -41,20 +41,20 @@ div{
     border-top: 1px solid rgb(46, 32, 32);
     height: 100%;
     font-size: 16px; 
-    background-color: rgb(64, 78, 124);
+    background-color: rgb(37, 45, 70);
     width: 200px;
     float: left;   
 }
 
 .element {
-    margin-top: 1px;
+    margin-top: 0px;
     padding-top: 0px;
-    padding-bottom: 3px;
+    padding-bottom: 0px;
     padding-left: 10px;
-    height: 23px;
+    height: auto;
     font-size: 14px;
     color: #fff;
-    border-left: 1px solid rgb(186, 155, 226);
+
     background-color:rgb(37, 45, 70); ;
     display: flex; flex-direction: column;
 }
@@ -65,7 +65,8 @@ div{
 
 #contents{
     max-height: calc(100% - 55px);
-    overflow-y: scroll;
+    overflow-x: hidden; 
+    overflow-x: auto; 
     display: flex; flex-direction: column;
 }
 #contents::-webkit-scrollbar {
@@ -126,12 +127,22 @@ img{
     width: 80%;
     object-fit: cover;
 }
-#PropertiesPanel{
-    height: 100%;
+#propertiesPanel{
+    height: calc(100% );
+    
+    overflow-x: hidden; 
+    overflow-x: auto; 
     width: 300px;
     visibility: visible;
     float: left;
     background-color: rgb(64, 78, 124);;
+}
+.propertiesPanel{
+    height:auto;
+    padding-left: 10px;
+    padding-right: 0px;
+    margin-right: 0px;
+    width: calc(100% - 3px)
 }
 #root{
     height: 100%;
@@ -160,3 +171,57 @@ label{
     margin-bottom: 1px;
 
 }
+.propertiesElement{
+    height: unset;
+    display: flex; flex-direction: column;
+    padding-bottom: 2px;
+    border-bottom:  1px solid rgb(56, 44, 56); 
+
+}
+.propertiesTopBar{
+    line-height: 18px;
+    background-color:rgb(103, 116, 168) ;
+    margin: 5px;
+    margin-right: 0px;
+    text-align: center;
+    font-size: 15px;
+    height: 20px;
+    
+}
+.elementIndent{
+    width:2px;
+    margin-right: 6px;
+    height: calc(100% - 3px);
+    border-right: 1px dashed rgba(90, 69, 165, 0.575);
+}
+.projectTree{
+    overflow-x: hidden; 
+    overflow-x: auto; 
+    height: calc(100% - 40px);
+}
+.treeElement{
+    padding-left: 5px;
+    height: 23px;
+    display: flex; flex-direction: row;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 500px;
+    
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: inherit; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(84, 95, 129); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

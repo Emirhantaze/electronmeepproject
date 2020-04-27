@@ -1,3 +1,2 @@
 designing propertiesLastKey more efficently
-property'de iken basılan butonun yanda tree genişletilmemişse açılmamama sorunu çözümü 
-doğrudan içine array alan ve alınan array ile içindeki noktalara click element uygulayan bir function(Propertyclick)  
+proprtieselementşerini aslında aynı projecttree gibi array içine yazıp sonra da aynı şeilde yazdırma

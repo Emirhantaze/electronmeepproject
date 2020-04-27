@@ -4,16 +4,14 @@
     "values":{
         "cellsize":{
             "type":"mp.Vector3",
-            "values":[16,8,0]
+            "x":16,"y":8,"z":0
         },
         "baundrylayers":{
             "type":"array",
             "values":[
                 {
                     "type":"mp.PML",
-                    "values":{
-                        "thickness":1
-                    }
+                    "thickness":1
                 }
             ]
         },
@@ -25,11 +23,11 @@
                     "values":{
                         "size":{
                             "type":"mp.Vector3",
-                            "values":[1,1,1]
+                            "x":10,"y":10,"z":0
                         },
                         "center":{
                             "type":"mp.Vector3",
-                            "values":[]
+                            "x":0,"y":0,"z":0
                         },
                         "material":{
                             "type":"mp.Medium",
@@ -51,7 +49,7 @@
                     "component":"mp.Ez",
                     "center":{
                         "type":"mp.Vector3",
-                        "values":[-7,0]
+                        "x":-7,"y":0,"z":0
                     }
                 }
             ]
