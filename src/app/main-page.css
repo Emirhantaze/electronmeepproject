@@ -3,14 +3,21 @@
  max-height: 32px;
  background-color: #3A506B;
 }
+.container-after-titlebar{
+    height: 100%;
+}
+.element.SubProjectTreeHeader{
+    background-color: darkgrey;
+    text-align: center;
+    color: black;
+}
+
 body{
     height: 100%;
     margin: 0ch;
     padding: 0px;
 }
-div{
-    height: 100%;
-}
+
 .content{
     background-color: rgb(33, 46, 61);
     height: calc(100% - 52px);
@@ -60,6 +67,7 @@ div{
 }
 .element:hover{
     background-color: rgb(39, 27, 73);
+    color: blanchedalmond;
     
 }
 

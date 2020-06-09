@@ -37,7 +37,7 @@ MyTitleBar.updateMenu(menu);
 
 MyTitleBar.updateTitle('ElectronMeepProj V-0.0.3');
 
-/*
+
 let propertiesLastKey = 0
 let propertiesLastSelected="";
 let projectData = []
@@ -393,7 +393,7 @@ function test(){
 
 
 update()
-*/
+
 class BottomBar extends React.Component{
     constructor(props){
         super(props)
@@ -408,7 +408,7 @@ class BottomBar extends React.Component{
                 // ipcRenderer.send("test","a")
                 console.log()
                 }}>click</div>
-        <Test />        </div>
+    </div>
         );
     }
 }

@@ -9,20 +9,24 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
-    "create-react-class": "^15.6.3",
     "custom-electron-titlebar": "^3.2.2-hotfix62",
     "file-dialog": "^0.0.8",
     "jquery": "^3.4.1",
+    "node-pty": "^0.9.0",
+    "plotly.js": "^1.54.1",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
     "react-custom-electron-titlebar": "^3.1.0",
     "react-dom": "^16.13.1",
+    "react-plotly.js": "^2.4.0",
     "react-scripts": "3.4.1",
-    "webpack": "^4.42.0"
+    "webpack": "^4.42.0",
+    "xterm": "^4.6.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "rebuild": "electron-rebuild",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron": "electron .",
@@ -45,6 +49,7 @@
   },
   "devDependencies": {
     "electron": "^8.2.1",
+    "electron-rebuild": "^1.11.0",
     "foreman": "^3.0.1"
   }
 }

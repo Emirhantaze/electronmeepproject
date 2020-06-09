@@ -1,5 +1,0 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import "./app/main-page.css"
-import propertiesopenbtn from "./app/icons/propertiesopenbtn.png"
-import logo from "./app/icons/logo192.png"
