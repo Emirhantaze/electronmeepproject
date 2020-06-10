@@ -20,6 +20,7 @@
     "react-dom": "^16.13.1",
     "react-plotly.js": "^2.4.0",
     "react-scripts": "3.4.1",
+    "typescript": "^3.9.5",
     "webpack": "^4.42.0",
     "xterm": "^4.6.0"
   },
@@ -29,7 +30,7 @@
     "rebuild": "electron-rebuild",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron": "electron .",
+    "electron": "electron . --no-sandbox",
     "dev": "nf start"
   },
   "eslintConfig": {

@@ -11,7 +11,7 @@ function createWindow () {
   const mainWindow = new BrowserWindow({
     width: 1024,
     height: 680,
-    frame:false,
+    frame:true,
     webPreferences: {
       nodeIntegration: true
     }
@@ -39,7 +39,7 @@ function createWindow () {
 mainWindow.loadURL(startUrl);
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished

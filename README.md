@@ -1,2 +1,1 @@
-#Current state of Version 0.0.3
-![Alt Text](https://raw.githubusercontent.com/emtiyl/electronmeepproject/version-0.0.3/test.gif)
+This is a template file for electron and react application
