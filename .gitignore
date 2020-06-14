@@ -9,9 +9,10 @@ Working_files_Bootstrap/# See https://help.github.com/articles/ignoring-files/ f
 
 # testing
 /coverage
-
+/.vscode
 # production
 /build
+*.lock
 
 # misc
 .DS_Store
