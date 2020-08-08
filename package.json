@@ -1,6 +1,6 @@
 {
   "name": "electronmeepproject",
-  "version": "0.1.0",
+  "version": "0.0.4",
   "private": true,
   "main": "electron-starter.js",
   "homepage": "./",
@@ -21,6 +21,7 @@
     "react-plotly.js": "^2.4.0",
     "react-scripts": "3.4.1",
     "typescript": "^3.9.5",
+    "uuid": "^8.1.0",
     "webpack": "^4.42.0",
     "xterm": "^4.6.0"
   },
