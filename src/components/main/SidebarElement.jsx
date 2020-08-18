@@ -18,6 +18,17 @@ import { SpecsContext } from '../../context/SpecsContext';
     return (
       
         <div className='element' onClick={()=>{
+
+            /**
+             * close down menu state changer
+             */
+            if(props.click[0]==="none"){
+
+                props.click[1]("block");
+            }else{
+                props.click[1]("none");
+
+            }
             selectedSetter(props.keyarray)
             selectedTextSetter(props.children)
 
