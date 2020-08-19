@@ -19,7 +19,7 @@ class SimContextProvider extends Component {
       <SimContext.Provider value={
         {
           sim:this.state.sim, 
-          setState: this.setterSim,
+          simSetter: this.setterSim,
 
         }}>
         {this.props.children}

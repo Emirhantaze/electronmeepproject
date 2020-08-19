@@ -7,7 +7,7 @@ const { dialog } = remote.require('electron')
 const fs = remote.require('fs')
 const win = remote.getCurrentWindow();
 const Header = () => {
-    const {sim , setState} = useContext(SimContext)
+    const {sim , simSetter} = useContext(SimContext)
     const {specsonoff,specsonoffSetter} = useContext(SpecsContext)
     return (
         <div className='top-bar'>
@@ -19,7 +19,7 @@ const Header = () => {
                 }   
                const path = await dialog.showOpenDialog(win,options)
                fs.readFile(path.filePaths[0]+`/project.json`,(err,data)=>{
-                setState(JSON.parse(data.toString()))
+                simSetter(JSON.parse(data.toString()))
             });
             }}
             >import sim from file</button>

@@ -6,7 +6,7 @@ import { SpecsContext } from '../../context/SpecsContext';
 
 export default function SpecsPanel() {
     let {specsonoff,selected,selectedText,selectedTextSetter} = useContext(SpecsContext)
-    const {sim,setState} = useContext(SimContext)
+    const {sim,simSetter} = useContext(SimContext)
     const [text, setText] = useState("");
     let onoff = specsonoff ? "block":"none"
   return (
@@ -28,7 +28,7 @@ export default function SpecsPanel() {
                               console.log(keyarray)
                               obj = changeObjWithArray(obj,keyarray,text)
                               selectedTextSetter(`${keyarray[keyarray.length-1]}:${text}`)
-                              setState(obj)
+                              simSetter(obj)
                               
                             }
                             }}}
@@ -44,7 +44,7 @@ export default function SpecsPanel() {
               console.log(keyarray)
               obj = changeObjWithArray(obj,keyarray,text)
               selectedTextSetter(`${keyarray[keyarray.length-1]}:${text}`)
-              setState(obj)
+              simSetter(obj)
               
             }
             }}/>
