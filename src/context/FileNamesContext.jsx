@@ -6,9 +6,9 @@ export const FileNamesContext = createContext()
 export const FileNamesContextProvider = (props) => {
     const [currentProjectPath,currentProjectPathSetter] = useState(undefined)
     return (
-        <FileNamesContext.Provider value={
-            currentProjectPath,
-            currentProjectPathSetter
+        <FileNamesContext.Provider value={{
+            currentProjectPath : currentProjectPath,
+            currentProjectPathSetter : currentProjectPathSetter}
         }>
             {props.children}
         </FileNamesContext.Provider>

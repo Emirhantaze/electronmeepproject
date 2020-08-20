@@ -8,15 +8,20 @@ const win = remote.getCurrentWindow();
 export const SaveProjectToDiff = () => {
     const {sim} = useContext(SimContext)
     return (
-        <button onClick={
+        <div className="horizontal-button" onClick={
             async ()=>{
                 const  options = {
                         title: "Select folder for saved simulation",
                         properties:["openDirectory"]
                     }   
                 const path = await dialog.showOpenDialog(win,options)
-                fs.writeFileSync(path.filePaths[0]+`/project.json`, JSON.stringify(sim), 'utf8', ()=>{});
-            }
-        }>save simulation file</button>
+                    if(path.cancelled ){
+
+                        fs.writeFileSync(path.filePaths[0]+`/project.json`, JSON.stringify(sim), 'utf8', ()=>{});
+                    }else{
+                        alert("cancelled")
+                    }
+                }
+        }>Save Project to different folder</div>
     )
 }
