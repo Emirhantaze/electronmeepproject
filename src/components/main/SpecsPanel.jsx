@@ -1,6 +1,5 @@
 import React, {useContext,useState} from 'react'
 import { SimContext } from '../../context/Sim';
-import uuid from 'uuid/dist/v1'
 import { SpecsContext } from '../../context/SpecsContext';
 
 

@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
-import logo from './test.svg'
-const { remote } = window.require('electron')
+import React, { } from 'react'
 const fs = window.require(`fs`)
 var _img = fs.readFileSync("/home/emirhantaze/test.svg").toString('base64');
-const Viewport = (props) => {
+const Viewport = () => {
     return (
         <div style={{ maxWidth: "400px", float: "left" }}
-        ><img src={`data:image/svg+xml;base64,${_img}`} /></div>
+        ><img src={`data:image/svg+xml;base64,${_img}`} alt=""/></div>
     );
 };
 export default Viewport;

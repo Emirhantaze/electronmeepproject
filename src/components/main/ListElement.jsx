@@ -3,7 +3,7 @@ import { SimContext } from '../../context/Sim';
 import uuid from 'uuid/dist/v1'
 import SidebarElement from './SidebarElement'
  const ListElement = (props)=>{
-    const {sim,simSetter} = useContext(SimContext)
+    const {sim} = useContext(SimContext)
     let rendered = [];
     let obj = Object.assign({},sim)
     const [display,dsiplaySetter] = useState("none")

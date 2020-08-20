@@ -1,9 +1,7 @@
 import React, {useContext} from 'react'
-import { SimContext } from '../../context/Sim';
 import uuid from 'uuid/dist/v1'
 import { SpecsContext } from '../../context/SpecsContext';
  const SidebarElement = (props)=>{
-    const {sim,simSetter} = useContext(SimContext)
     const {selectedSetter,selectedTextSetter} = useContext(SpecsContext)
     let temp =[];
 
