@@ -1,13 +1,13 @@
 import React from 'react';
-import {ImportSimButton} from './header_buttons/ImportSimButton';
+import { ImportProjectButton } from './header_buttons/ImportProjectButton';
+import { SaveProject } from './header_buttons/SaveProject';
 import { SpecsOnOffButton } from './header_buttons/SpecsOnOffButton';
-import { SaveSimulation } from './header_buttons/SaveSimulation';
 const Header = () => {
     return (
         <div className='top-bar'>
-            <ImportSimButton></ImportSimButton>
+            <ImportProjectButton></ImportProjectButton>
+            <SaveProject></SaveProject>
             <SpecsOnOffButton></SpecsOnOffButton>
-            <SaveSimulation></SaveSimulation>
         </div>
     );
 }

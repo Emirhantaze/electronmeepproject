@@ -5,7 +5,7 @@ const {remote} = window.require('electron')
 const { dialog } = remote.require('electron')
 const fs = remote.require('fs')
 const win = remote.getCurrentWindow();
-export const SaveSimulation = () => {
+export const SaveProject = () => {
     const {sim} = useContext(SimContext)
     return (
         <button onClick={

@@ -8,7 +8,7 @@ const win = remote.getCurrentWindow();
 
 
 
-export const ImportSimButton = () => {
+export const ImportProjectButton = () => {
     const {simSetter} = useContext(SimContext)
     return (
             <button onClick={ async () =>
@@ -22,7 +22,7 @@ export const ImportSimButton = () => {
                 simSetter(JSON.parse(data.toString()))
             });
             }}
-            >import sim from file</button>            
+            >import Project from folder</button>            
         
     )
 }
