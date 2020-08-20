@@ -19,7 +19,7 @@ export const SaveProject = () => {
                         buttons: ["Cancel", "Create new project", "Open a project"]
                     })   
                     if(selection.response ===1){
-
+                        alert("this is not developed right now")
                     }
                     else if(selection.response===2){
                         const  options = {
