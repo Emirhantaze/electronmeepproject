@@ -11,7 +11,7 @@ function createWindow () {
   const mainWindow = new BrowserWindow({
     width: 1024,
     height: 680,
-    frame:false,
+    frame:true,
     webPreferences: {
       nodeIntegration: true
     }
@@ -30,13 +30,14 @@ function createWindow () {
     }
   })
   // and load the index.html of the app.
+  process.env.ELECTRON_START_URL = `http://localhost:${8080}`
   const startUrl = process.env.ELECTRON_START_URL || url.format({
     pathname: path.join(__dirname, './build/index.html'),
     protocol: 'file:',
     slashes: true
 });
-
 mainWindow.loadURL(startUrl);
+console.log("werwer")
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
@@ -46,7 +47,6 @@ mainWindow.loadURL(startUrl);
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(createWindow)
-
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
   // On macOS it is common for applications and their menu bar
