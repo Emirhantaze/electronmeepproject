@@ -1,9 +1,7 @@
 import React, {useContext} from 'react'
-import { SimContext } from '../../context/Sim';
 import uuid from 'uuid/dist/v1'
 import { SpecsContext } from '../../context/SpecsContext';
  const SidebarElement = (props)=>{
-    const {sim,setState} = useContext(SimContext)
     const {selectedSetter,selectedTextSetter} = useContext(SpecsContext)
     let temp =[];
 
@@ -18,6 +16,17 @@ import { SpecsContext } from '../../context/SpecsContext';
     return (
       
         <div className='element' onClick={()=>{
+
+            /**
+             * close down menu state changer
+             */
+            if(props.click[0]==="none"){
+
+                props.click[1]("block");
+            }else{
+                props.click[1]("none");
+
+            }
             selectedSetter(props.keyarray)
             selectedTextSetter(props.children)
 

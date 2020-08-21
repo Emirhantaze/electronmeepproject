@@ -3,7 +3,7 @@ import { SimContext } from '../../context/Sim';
 import uuid from 'uuid/dist/v1'
 import ListElement from './ListElement';
  const Sidebar = (props)=>{
-    const {sim,setState} = useContext(SimContext)
+    const {sim} = useContext(SimContext)
     
     return (
         <div className='ProjectPanel noselect'>
