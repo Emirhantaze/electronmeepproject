@@ -5,6 +5,7 @@ import Main from './components/main/Main';
 import SpecsContextProvider from './context/SpecsContext';
 import { FileNamesContextProvider } from './context/FileNamesContext';
 import './styles/main.css'
+import { TitleBar } from './components/titlebar';
 
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
             <SpecsContextProvider>
                 <SimContextProvider>
                     <FileNamesContextProvider>
+                        <TitleBar/>
                         <Header/> 
                         <Main/>
                     </FileNamesContextProvider>
