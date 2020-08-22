@@ -16,7 +16,6 @@ const App = () => {
             <SpecsContextProvider>
                 <SimContextProvider>
                     <FileNamesContextProvider>
-                        <div onClick={()=>eel.meep_test()}>qweqwe</div>
                         <Header/> 
                         <Main/>
                     </FileNamesContextProvider>

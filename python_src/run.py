@@ -4,8 +4,21 @@ import matplotlib.pyplot as plt,mpld3
 import meep as mp
 import numpy as np
 from meep.materials import Au
+import io
+import base64
+import threading
+from Capturing import *
+import multiprocessing 
 # Set web files folder
-eel.init('src')
+capturing = Capturing()
+
+eel.init('src', ['.tsx', '.ts', '.jsx', '.js', '.html'])
+def on_read(line):
+    # eel.say_hello_js(line)
+    eel.print(line)
+    pass
+capturing.on_readline(on_read)
+capturing.start()
 
 @eel.expose                         # Expose this function to Javascript
 def say_hello_py(x):
@@ -14,8 +27,20 @@ def say_hello_py(x):
 
 say_hello_py('Python World!') # Call a Javascript function
 
+process = None 
+
 @eel.expose
 def meep_test():
+    global process
+    process = multiprocessing.Process(target=meep_run, args=())
+    process.start() 
+
+@eel.expose
+def meep_kill():
+    global process
+    process.terminate()
+
+def meep_run():
 
     k=mp.Ey # k is polarization component of source
     offsetx = 0.05
@@ -30,7 +55,7 @@ def meep_test():
     dfrq = frq_max-frq_min
     nfrq = 100
     Material= Au
-    resolution = 80
+    resolution = 800
     dpml = 0.11
     pml_layers = [mp.PML(dpml, direction=mp.X, side=mp.High),
                         mp.Absorber(dpml, direction=mp.X, side=mp.Low)]
@@ -93,7 +118,7 @@ def meep_test():
     # np.savetxt(f"in_ez_ST{round(spacing_thickness,2)}.txt",after_block_flux)
     transmittance_ratio= np.divide(after_block_flux_second_run,after_block_flux)
     wvls=np.divide(1,np.asarray(flux_freqs))
-    plt.plot(wvls,transmittance_ratio)
+    # plt.plot(wvls,transmittance_ratio)
     plt.title(f"resolution: {resolution}, dpml: {dpml}, blockspacing: {spacing_thickness}")
     plt.xlabel("wavelengths")
     plt.ylabel("transmission")
@@ -101,13 +126,18 @@ def meep_test():
     time = datetime.now().strftime("%d-%m-%Y_%I-%M-%S_%p")
     name = __file__.split("/")
     name=name[len(name)-1]
-    plt.show()
+    # plt.show()
     fig = plt.figure(1)
     sim.plot2D()
-    plt.show()
     #  plt.savefig(fname=f"/home/emirhan/meepUnderGraduateResearch/pictures/{name}-{time}.svg",format="svg")
 
-
+@eel.expose
+def show_plot():
+    s = io.BytesIO()
+    plt.savefig(s, format='png', bbox_inches="tight")
+    plt.close()
+    s = base64.b64encode(s.getvalue()).decode("utf-8").replace("\n", "")
+    return(s)
 
 # eel.start('index.html', options=options)
 eel.start("http://localhost:5000", mode="custom",cmdline_args=["sudo","yarn","run","dev"],port=8080)

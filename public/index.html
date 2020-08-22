@@ -29,14 +29,10 @@
         <script type="text/javascript" src="http://localhost:8080/eel.js"></script>
         <script>
           eel.set_host("ws://localhost:8080")
-          const fun = async ()=>{
-
-          let a =  await eel.say_hello_py("ahömet")(null)
-          console.log(a)
-          return a;
-          }
-          a = fun()
-          console.log(a)
+          eel.expose(print); // Expose this function to Python
+      function print(x) {
+        console.log( x);
+      }
         </script>
   </head>
   <body>
