@@ -1,6 +1,6 @@
 import eel
 import meep as mp
-import matplotlib.pyplot as plt,mpld3
+import matplotlib.pyplot as plt
 import meep as mp
 import numpy as np
 from meep.materials import Au
@@ -55,7 +55,7 @@ def meep_run():
     dfrq = frq_max-frq_min
     nfrq = 100
     Material= Au
-    resolution = 800
+    resolution = 80
     dpml = 0.11
     pml_layers = [mp.PML(dpml, direction=mp.X, side=mp.High),
                         mp.Absorber(dpml, direction=mp.X, side=mp.Low)]
@@ -140,4 +140,4 @@ def show_plot():
     return(s)
 
 # eel.start('index.html', options=options)
-eel.start("http://localhost:5000", mode="custom",cmdline_args=["sudo","yarn","run","dev"],port=8080)
+eel.start("http://localhost:5000", mode="custom",cmdline_args=["yarn","run","dev"],port=8080)
