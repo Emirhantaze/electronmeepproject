@@ -1,17 +1,22 @@
-import React, { useContext } from 'react'
-import { SpecsContext } from '../../../context/SpecsContext';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { specsonoffSetter, selectSpecsonoff } from "../../../Slices/specsOnOffSlice";
 
 export const SpecsOnOffButton = () => {
-    const {specsonoff,specsonoffSetter} = useContext(SpecsContext)
-
-    return (
-        <div  className="horizontal-button" onClick={()=>{
-            if(specsonoff){
-                specsonoffSetter(false)
-            }
-            else{
-                specsonoffSetter(true)
-            }
-        }}>specs on off</div>
-    )
-}
+	const specsonoff = useSelector(selectSpecsonoff);
+	const dispatch = useDispatch();
+	return (
+		<div
+			className="horizontal-button"
+			onClick={() => {
+				if (specsonoff) {
+					dispatch(specsonoffSetter(false));
+				} else {
+					dispatch(specsonoffSetter(true));
+				}
+			}}
+		>
+			specs on off
+		</div>
+	);
+};
