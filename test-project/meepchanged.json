@@ -1,1 +1,36 @@
-{"name":"test","type":"simulation","values":{"cellsize":{"type":"mp.Vector3","x":16,"y":8,"z":0},"baundrylayers":{"type":"array","values":[{"type":"mp.PML","thickness":1}]},"geometry":{"type":"array","values":[{"type":"mp.Block","values":{"size":{"type":"mp.Vector3","x":10,"y":10,"z":0},"center":{"type":"mp.Vector3","x":0,"y":0,"z":0},"material":{"type":"mp.Medium","epsilon":12}}}]},"sources":{"type":"array","values":[{"type":"mp.Source","src":{"type":"gaussian","frequency":0.15},"component":"mp.Ez","center":{"type":"mp.Vector3","x":-7,"y":0,"z":0}}]},"resolution":1}}
+{
+  "name": "test",
+  "type": "simulation",
+  "values": {
+    "cellsize": { "type": "mp.Vector3", "x": 16, "y": 8, "z": 0 },
+    "baundrylayers": {
+      "type": "array",
+      "values": [{ "type": "mp.PML", "thickness": 1 }]
+    },
+    "geometry": {
+      "type": "array",
+      "values": [
+        {
+          "type": "mp.Block",
+          "values": {
+            "size": { "type": "mp.Vector3", "x": 10, "y": 10, "z": 0 },
+            "center": { "type": "mp.Vector3", "x": 0, "y": 0, "z": 0 },
+            "material": { "type": "mp.Medium", "epsilon": 12 }
+          }
+        }
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "values": [
+        {
+          "type": "mp.Source",
+          "src": { "type": "gaussian", "frequency": 0.15 },
+          "component": "mp.Ez",
+          "center": { "type": "mp.Vector3", "x": -7, "y": 0, "z": 0 }
+        }
+      ]
+    },
+    "resolution": 1
+  }
+}
