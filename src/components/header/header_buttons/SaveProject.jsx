@@ -10,7 +10,6 @@ const fs = remote.require("fs");
 export const SaveProject = () => {
 	const sim = useSelector(selectSim);
 	const currentProjectPath = useSelector(selectCurrentProjectPath);
-	console.log(currentProjectPath);
 	const dispatch = useDispatch();
 	return (
 		<div

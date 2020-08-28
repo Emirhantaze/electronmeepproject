@@ -1,4 +1,4 @@
-import { EMPTYSIMULATION } from "./meepInterfaces";
+import { EMPTYSIMULATION } from "./Meep/meepInterfaces";
 
 export const EMPTYPROJECT = [
 	{

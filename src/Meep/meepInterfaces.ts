@@ -1,12 +1,10 @@
-import { type } from "os";
-
 export interface EMPTYSIMULATION {
 	name?: string;
 	type: string;
 	values: any;
 }
 
-// after this line all meep functinolty will be extracted here for later use
+// after this line all meep functinolty will be extracted here for later from examples of python meep
 
 // All interfaces will start with `IMeep{name of funtion or imported object}`
 // Enums will named as `EMeep{name of funtion or imported object}`
@@ -66,19 +64,4 @@ export enum EMeepderived_component {
 	EnergyDensity,
 	D_EnergyDensity,
 	H_EnergyDensity,
-}
-
-// The Simulation Class
-
-export interface IMeepsimulation {}
-
-// Simulation Time
-
-// Field Computations
-
-export interface IMeepset_boundary {
-	type?: string;
-	side: EMeepside;
-	direction: EMeepdirections;
-	condition: EMeepboundary_condition;
 }

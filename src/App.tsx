@@ -7,6 +7,7 @@ import fileNameReducer from "./Slices/fileNameSlices";
 import { Provider } from "react-redux";
 import simReducer from "./Slices/simSlices";
 import specsOnOffReducer from "./Slices/specsOnOffSlice";
+import "./Meep/meepGeom";
 //  Reducer declerations
 export const store = configureStore({
 	reducer: {
