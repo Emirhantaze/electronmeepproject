@@ -13,7 +13,7 @@ export const SaveProject = () => {
 	const dispatch = useDispatch();
 	return (
 		<div
-			className="horizontal-button"
+			className="horizontal-button noselect"
 			onClick={async () => {
 				if (currentProjectPath === undefined) {
 					const selection = await dialog.showMessageBox(win, {
@@ -43,7 +43,7 @@ export const SaveProject = () => {
 						currentProjectPath + `/project.json`,
 						JSON.stringify(sim),
 						"utf8",
-						() => {}
+						() => { }
 					);
 				}
 			}}

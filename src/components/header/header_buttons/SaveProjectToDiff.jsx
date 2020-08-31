@@ -9,7 +9,7 @@ export const SaveProjectToDiff = () => {
 	const sim = useSelector(selectSim);
 	return (
 		<div
-			className="horizontal-button"
+			className="horizontal-button noselect"
 			onClick={async () => {
 				const options = {
 					title: "Select folder for saved simulation",
@@ -21,7 +21,7 @@ export const SaveProjectToDiff = () => {
 						path.filePaths[0] + `/project.json`,
 						JSON.stringify(sim),
 						"utf8",
-						() => {}
+						() => { }
 					);
 				} else {
 					alert("cancelled");

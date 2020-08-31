@@ -11,7 +11,7 @@ export const ImportProjectButton = () => {
 	const dispatch = useDispatch();
 	return (
 		<div
-			className="horizontal-button"
+			className="horizontal-button noselect"
 			id="topbarfirstbutton"
 			onClick={async () => {
 				const selection = await dialog.showMessageBox(win, {
