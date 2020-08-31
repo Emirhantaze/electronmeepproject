@@ -1,0 +1,25 @@
+{
+    "__classname": "Cone",
+    "material": {
+        "__classname": "Medium",
+        "E_susceptibilities": [],
+        "H_susceptibilities": [],
+        "valid_freq_range": {
+            "__classname": "FreqRange",
+            "min": -100000000000000000000,
+            "max": 100000000000000000000
+        }
+    },
+    "center": {
+        "__classname": "Vector3"
+    },
+    "radius": 1,
+    "axis": {
+        "__classname": "Vector3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+    },
+    "height": 100,
+    "radius2": 12
+}

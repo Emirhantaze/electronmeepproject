@@ -8,12 +8,16 @@ import { Provider } from "react-redux";
 import simReducer from "./Slices/simSlices";
 import specsOnOffReducer from "./Slices/specsOnOffSlice";
 import "./Meep/meepGeom";
+import "./eelconfig"
+import addMenuonoffReducer from "./Slices/addMenuSlice";
+import { AddMenu } from "./components/AddMenu";
 //  Reducer declerations
 export const store = configureStore({
 	reducer: {
 		fileName: fileNameReducer,
 		sim: simReducer,
 		specsOnOff: specsOnOffReducer,
+		addMenuonoff: addMenuonoffReducer
 	},
 });
 const state = store.getState();
@@ -23,6 +27,7 @@ const App = () => {
 	return (
 		<div style={{ height: "100vh" }}>
 			<Provider store={store}>
+				<AddMenu />
 				<Header />
 				<Main />
 			</Provider>

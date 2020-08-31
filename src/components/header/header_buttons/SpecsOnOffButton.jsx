@@ -7,7 +7,7 @@ export const SpecsOnOffButton = () => {
 	const dispatch = useDispatch();
 	return (
 		<div
-			className="horizontal-button"
+			className="horizontal-button noselect"
 			onClick={() => {
 				if (specsonoff) {
 					dispatch(specsonoffSetter(false));

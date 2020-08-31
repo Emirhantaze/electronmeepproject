@@ -1,0 +1,18 @@
+.Absolute {
+    position: absolute;
+    top: calc(100vh * 0.083);
+    left: calc(100vw * 0.083);
+    height: calc(100vh / 1.2);
+    width: calc(100vw / 1.2);
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 0;
+    background: rgb(83, 102, 138);
+}
+.cancel{
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left : calc(100% - 22px);
+    top: 2px;
+}
