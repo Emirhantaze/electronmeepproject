@@ -225,23 +225,3 @@ label {
   display: flex;
   flex-direction: row;
 }
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 500px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: inherit;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgb(84, 95, 129);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
