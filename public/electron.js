@@ -12,6 +12,7 @@ function createWindow() {
     frame: true,
     webPreferences: {
       nodeIntegration: true,
+      enableRemoteModule: true
     },
   });
   mainWindow.webContents.on(
@@ -34,7 +35,7 @@ function createWindow() {
   const startUrl =
     process.env.ELECTRON_START_URL ||
     url.format({
-      pathname: path.join(__dirname, "./build/index.html"),
+      pathname: path.join(__dirname, "./index.html"),
       protocol: "file:",
       slashes: true,
     });
@@ -48,6 +49,30 @@ function createWindow() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
+
+
+
+// In this file you can include the rest of your app's specific main process
+// code. You can also put them in separate files and require them here.
+const main = async () => {
+  var os = require('os');
+  var pty = require('node-pty');
+
+  var shell = os.platform() === 'win32' ? 'powershell.exe' : 'bash';
+  var ptyProcess = pty.spawn(shell, [], {
+    name: 'xterm-color',
+    cols: 80,
+    rows: 30,
+    cwd: "./",
+    env: process.env
+  });
+  console.log(process.env.HOME)
+
+  ptyProcess.write("ls\r")
+
+}
+
+main()
 app.whenReady().then(createWindow);
 
 // Quit when all windows are closed.
@@ -62,6 +87,3 @@ app.on("activate", function () {
   // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) createWindow();
 });
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.

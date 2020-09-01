@@ -25,10 +25,12 @@ eel.init('src', ['.tsx', '.ts', '.jsx', '.js', '.html'])
 
 def on_read(line):
     # eel.say_hello_js(line)
+    capturing.print(line)
     eel.print(line)
     pass
 
 
+print("test")
 capturing.on_readline(on_read)
 capturing.start()
 
@@ -77,14 +79,12 @@ def show_plot():
     s = io.BytesIO()
     fig = plt.figure(1)
     sim.plot2D()
-    # plt.savefig(s, format='png', bbox_inches="tight")
-    # s = base64.b64encode(s.getvalue()).decode("utf-8")
-
-    s = mpld3.fig_to_html(fig=fig, no_extras=False, template_type="general")
-    print(s)
+    plt.savefig(s, format='png')
+    s = base64.b64encode(s.getvalue()).decode("utf-8")
+    # s = mpld3.fig_to_html(fig=fig, no_extras=False, template_type="general")
     return(s)
 
 
 # eel.start('index.html', options=options)
-eel.start("http://localhost:5000", mode="custom",
+eel.start("index.html", mode=False,
           cmdline_args=["yarn", "run", "dev"], port=8080)

@@ -26,6 +26,8 @@ body {
 .content {
   background-color: rgb(33, 46, 61);
   height: calc(100% - 52px);
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .bottom-bar {
   background-color: rgb(65, 64, 138);

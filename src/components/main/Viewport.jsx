@@ -10,9 +10,13 @@ const Viewport = () => {
 
   return (
 
-    <div
+    <div style={{ float: "left", width: "700px", overflowX: "scroll" }}
     ><div onClick={() => {
-      eel.show_plot()(data => _imgSetter(data))
+      let startTime = new Date()
+      eel.show_plot()(data => {
+        console.log(`elapsed = ${new Date() - startTime}`)
+        return _imgSetter(data)
+      })
     }}>change sim if simulation is done</div>
       <img src={`data:image/png;base64,${_img}`} alt="" />
     </div>

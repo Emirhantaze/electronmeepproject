@@ -434,10 +434,12 @@ const f = (x: any) => {
 };
 
 
-let text = "";
-console.log(f(new Cone(1, 12, new Vector3(1, 1, 1), 100, new Medium(), new Vector3(), undefined)))
-window.eel.fixCode(f(new Cone(1, 12, new Vector3(1, 1, 1), 100, new Medium(), new Vector3(), undefined)))((data: string) => {
-	text = data
-	console.log((text))
-});
-console.log(JSON.stringify((new Cone(1, 12, new Vector3(1, 1, 1), 100, new Medium(), new Vector3(), undefined))))
+// let text = "";
+// console.log(f(new Cone(1, 12, new Vector3(1, 1, 1), 100, new Medium(), new Vector3(), undefined)))
+// window.eel.fixCode(f(new Cone(1, 12, new Vector3(1, 1, 1), 100, new Medium(), new Vector3(), undefined)))((data: string) => {
+// 	text = data
+// 	console.log((text))
+// });
+// console.log(JSON.stringify((new Cone(1, 12, new Vector3(1, 1, 1), 100, new Medium(), new Vector3(), undefined))))
+
+console.log(Ellipsoid.name)
