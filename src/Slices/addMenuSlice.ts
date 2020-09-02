@@ -3,7 +3,7 @@ import { RootState } from "../App";
 const slice = createSlice({
     name: "addMenuonoff",
     initialState: {
-        value: false
+        value: true
     } as IaddMenuonoffState,
     reducers: {
         addMenuonoffSetter: (state: IaddMenuonoffState) => {
