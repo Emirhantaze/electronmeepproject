@@ -3,7 +3,7 @@ export class Python {
 		this.pythonname = pythonname;
 	}
 	pythonname: string | undefined;
-	__classname: string = this.constructor.name
+	__classname: string = "Python"
 
 }
 
@@ -16,7 +16,7 @@ export class Vector3 extends Python {
 	) {
 		super(pythonname);
 	}
-	__classname: string = this.constructor.name
+	__classname: string = "Vector3"
 
 }
 
@@ -24,7 +24,7 @@ export class FreqRange extends Python {
 	constructor(public min: number, public max: number, pythonname?: string) {
 		super(pythonname);
 	}
-	__classname: string = this.constructor.name
+	__classname: string = "FreqRange"
 
 }
 export class Medium extends Python {
@@ -59,7 +59,7 @@ export class Medium extends Python {
 	) {
 		super(pythonname);
 	}
-	__classname: string = this.constructor.name
+	__classname: string = "Medium"
 
 }
 export class Susceptibility extends Python {
@@ -77,7 +77,7 @@ export class Susceptibility extends Python {
 	sigma_diag?: Vector3;
 	sigma_offdiag?: Vector3;
 	sigma?: number;
-	__classname: string = this.constructor.name
+	__classname: string = "Susceptibility"
 
 }
 
@@ -97,7 +97,7 @@ export class LorentzianSusceptibility extends Susceptibility {
 
 	frquency?: number;
 	gamma?: number;
-	__classname: string = this.constructor.name
+	__classname: string = "LorentzianSusceptibility"
 
 }
 
@@ -117,7 +117,7 @@ export class DrudeSusceptibility extends Susceptibility {
 
 	frquency?: number;
 	gamma?: number;
-	__classname: string = this.constructor.name
+	__classname: string = "DrudeSusceptibility"
 
 }
 
@@ -135,7 +135,7 @@ export class NoisyLorentzianSusceptibility extends LorentzianSusceptibility {
 		this.noise_amp = noise_amp;
 	}
 	noise_amp?: number;
-	__classname: string = this.constructor.name
+	__classname: string = "NoisyLorentzianSusceptibility"
 
 
 }
@@ -154,7 +154,7 @@ export class NoisyDrudeSusceptibility extends DrudeSusceptibility {
 		this.noise_amp = noise_amp;
 	}
 	noise_amp?: number;
-	__classname: string = this.constructor.name
+	__classname: string = "NoisyDrudeSusceptibility"
 
 }
 
@@ -172,8 +172,7 @@ export class GyrotropicLorentzianSusceptibility extends LorentzianSusceptibility
 		this.bias = bias;
 	}
 	bias?: Vector3;
-	__classname: string = this.constructor.name
-
+	__classname: string = "GyrotropicLorentzianSusceptibility"
 }
 
 export class GyrotropicDrudeSusceptibility extends DrudeSusceptibility {
@@ -190,7 +189,7 @@ export class GyrotropicDrudeSusceptibility extends DrudeSusceptibility {
 		this.bias = bias;
 	}
 	bias?: Vector3;
-	__classname: string = this.constructor.name
+	__classname: string = "GyrotropicDrudeSusceptibility"
 
 }
 
@@ -215,7 +214,7 @@ export class GyrotropicSaturatedSusceptibility extends Susceptibility {
 	frequency?: number;
 	gamma?: number;
 	alpha?: number;
-	__classname: string = this.constructor.name
+	__classname: string = "GyrotropicDrudeSusceptibility"
 
 }
 
@@ -234,7 +233,7 @@ export class MultilevelAtom extends Susceptibility {
 	}
 	initial_populations?: Array<Number>;
 	transitions?: Array<Transition>;
-	__classname: string = this.constructor.name
+	__classname: string = "MultilevelAtom"
 
 }
 export class Transition extends Python {
@@ -250,7 +249,7 @@ export class Transition extends Python {
 	) {
 		super(pythonname);
 	}
-	__classname: string = this.constructor.name
+	__classname: string = "Transition"
 
 }
 export class GeometricObject extends Python {
@@ -262,7 +261,7 @@ export class GeometricObject extends Python {
 	) {
 		super(pythonname);
 	}
-	__classname: string = this.constructor.name
+	__classname: string = "GeometricObject"
 
 }
 
@@ -276,7 +275,7 @@ export class Sphere extends GeometricObject {
 	) {
 		super(material, center, epsilon_func, pythonname);
 	}
-	__classname: string = this.constructor.name
+	__classname: string = "Sphere"
 
 }
 
@@ -292,7 +291,7 @@ export class Cylinder extends GeometricObject {
 	) {
 		super(material, center, epsilon_func, pythonname);
 	}
-	__classname: string = this.constructor.name
+	__classname: string = "Cylinder"
 
 }
 
@@ -310,7 +309,7 @@ export class Wedge extends Cylinder {
 	) {
 		super(radius, axis, height, material, center, epsilon_func, pythonname);
 	}
-	__classname: string = this.constructor.name
+	__classname: string = "Wedge"
 
 }
 
@@ -327,7 +326,7 @@ export class Cone extends Cylinder {
 	) {
 		super(radius, axis, height, material, center, epsilon_func, pythonname);
 	}
-	__classname: string = this.constructor.name
+	__classname: string = "Cone"
 
 }
 export class Block extends GeometricObject {
@@ -343,7 +342,7 @@ export class Block extends GeometricObject {
 	) {
 		super(material, center, epsilon_func, pythonname);
 	}
-	__classname: string = this.constructor.name
+	__classname: string = "Block"
 
 }
 export class Ellipsoid extends Block {
@@ -359,7 +358,7 @@ export class Ellipsoid extends Block {
 	) {
 		super(size, e1, e2, e3, material, center, epsilon_func, pythonname);
 	}
-	__classname: string = this.constructor.name
+	__classname: string = "Ellipsoid"
 
 }
 
@@ -376,7 +375,7 @@ export class Prism extends GeometricObject {
 	) {
 		super(material, center, epsilon_func, pythonname);
 	}
-	__classname: string = this.constructor.name
+	__classname: string = "Prism"
 
 }
 export class Matrix extends Python {
@@ -390,7 +389,7 @@ export class Matrix extends Python {
 	) {
 		super(pythonname);
 	}
-	__classname: string = this.constructor.name
+	__classname: string = "Matrix"
 
 }
 export class Lattice extends Python {
@@ -404,7 +403,7 @@ export class Lattice extends Python {
 	) {
 		super(pythonname);
 	}
-	__classname: string = this.constructor.name
+	__classname: string = "Lattice"
 }
 const f = (x: any) => {
 	if (typeof x !== "object") {
@@ -441,5 +440,3 @@ const f = (x: any) => {
 // 	console.log((text))
 // });
 // console.log(JSON.stringify((new Cone(1, 12, new Vector3(1, 1, 1), 100, new Medium(), new Vector3(), undefined))))
-
-console.log(Ellipsoid.name)
