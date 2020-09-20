@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { selectSim, simSetter } from "../../Slices/simSlices";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../App";
+import { RootState } from "../../store";
 import { selectedTextSetter } from "../../Slices/specsOnOffSlice";
 var cloneDeep = require("lodash.clonedeep");
 

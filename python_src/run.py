@@ -1,4 +1,5 @@
 from sys import modules
+import sys
 import eel
 from matplotlib.pyplot import figure
 import meep as mp
@@ -30,7 +31,7 @@ def on_read(line):
     pass
 
 
-print("test")
+print("started")
 capturing.on_readline(on_read)
 capturing.start()
 
@@ -85,6 +86,10 @@ def show_plot():
     return(s)
 
 
+port = 8080
+if(len(sys.argv) > 1):
+    port = int(sys.argv[1])
+
 # eel.start('index.html', options=options)
-eel.start("index.html", mode=False,
-          cmdline_args=["yarn", "run", "dev"], port=8080)
+eel.start("index.html", mode=False, all_interfaces=True,
+          cmdline_args=["yarn", "run", "dev"], port=port)

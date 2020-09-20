@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../App";
+import { RootState } from "../store";
 const slice = createSlice({
 	name: "sim",
 	initialState: {

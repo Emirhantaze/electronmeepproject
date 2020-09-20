@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Path } from "typescript";
-import { RootState } from "../App";
+import { RootState } from "../store";
 const slice = createSlice({
 	name: "fileName" as string,
 
